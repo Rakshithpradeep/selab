@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      h1 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 24px;
+      }
+   
+
+      .profile-logo {
+        border-radius: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .dashboard-container {
+        text-align: center;
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      td.response {
+        position: relative;
+      }
+
+      td.response textarea {
+        width: 100%;
+        resize: vertical;
+        margin-bottom: 5px;
+      }
+
+      td.response button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      @media (min-width: 768px) {
+        .dashboard-links {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+    <title>NITCONF Discussion</title>
+  </head>
+  <body>
+    <nav class="header">
+      <h1>NITCONF</h1>
+      <a href="profile.html">
+        <img class="profile-logo" src="download.png" alt="Profile Logo" width="40" height="40" />
+      </a>
+    </nav>
+    <div class="dashboard-container">
+      <h2>Authors</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Issue</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>deekshitha</td>
+            <td>deekshitha@gmail.com</td>
+            <td>forgot to submit some papers</td>
+            <td class="response">
+              <textarea rows="3" placeholder="Type your response here"></textarea>
+              <button onclick="sendResponse('Alice Johnson')">Send</button>
+            </td>
+          </tr>
+          <tr>
+            <td>hemanth</td>
+            <td>hemanth@gmail.com</td>
+            <td>submitted paper in wrong field</td>
+            <td class="response">
+              <textarea rows="3" placeholder="Type your response here"></textarea>
+              <button onclick="sendResponse('Bob Williams')">Send</button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+      <h2>Reviewers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Issue</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>siri</td>
+            <td>siri@gmail.com</td>
+            <td>too many papers assigned, can't review</td>
+            <td class="response">
+              <textarea rows="3" placeholder="Type your response here"></textarea>
+              <button onclick="sendResponse('siri')">Send</button>
+            </td>
+          </tr>
+          <tr>
+            <td>shraddha</td>
+            <td>shraddha@gmail.com</td>
+            <td>assigned in wrong field of Expertise</td>
+            <td class="response">
+              <textarea rows="3" placeholder="Type your response here"></textarea>
+              <button onclick="sendResponse('shraddha')">Send</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function sendResponse(name) {
+        var responseTextarea = document.querySelector('textarea:focus');
+        if (responseTextarea) {
+          var response = responseTextarea.value;
+          // You can perform actions here when the user clicks the "Send" button
+          // For example, you can update a server with the new response.
+          console.log('Sending response for ' + name + ':', response);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      h1 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 24px;
+      }
+
+      .profile-logo {
+        border-radius: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .dashboard-container {
+        text-align: center;
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .abstract-link,
+      .comments-link {
+        color: #0066cc;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .abstract-link,
+      .accept-link,
+      .reject-link {
+        color: #0066cc;
+        text-decoration: underline;
+        cursor: pointer;
+        
+      }.abstract-popup,
+      .accept-popup,
+      .reject-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .abstract-popup,
+      .comments-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 5px;
+        overflow-y: auto;
+        max-height: 70vh;
+      }
+
+      .close-popup {
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #998b8a;
+        font-size: 30px;
+      }
+
+      #popupImage {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @media (min-width: 768px) {
+        .dashboard-links {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+    <title>NITCONF Rejected Papers</title>
+  </head>
+  <body>
+    <nav class="header">
+      <h1>NITCONF</h1>
+      <a href="profile.html">
+        <img class="profile-logo" src="download.png" alt="Profile Logo" width="40" height="40" />
+      </a>
+    </nav>
+    <div class="dashboard-container">
+      <h2>Rejected Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Abstract</th>
+            <th>View Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Machine Learning in Healthcare</td>
+            <td>Hemanth</td>
+            <td class="abstract-link" onclick="showAbstract('Machine Learning in Healthcare', 'Hemanth', 'largepreview.png')">View Abstract</td>
+            <td class="comments-link" onclick="showComments('Machine Learning in Healthcare', 'Hemanth')">View Comments</td>
+          </tr>
+          <tr>
+            <td>Data Visualization Techniques</td>
+            <td>Deekshitha</td>
+            <td class="abstract-link" onclick="showAbstract('Data Visualization Techniques', 'Deekshitha', 'largepreview (1).png')">View Abstract</td>
+            <td class="comments-link" onclick="showComments('Data Visualization Techniques', 'Deekshitha')">View Comments</td>
+          </tr>
+          <!-- Add more rows with dummy information and abstract links as needed -->
+        </tbody>
+      </table>
+
+      <!-- Abstract Popup -->
+      <div id="abstractPopup" class="abstract-popup">
+        <div class="popup-content">
+          <span class="close-popup" onclick="closePopup('abstractPopup')">&times;</span>
+          <h3 id="popupTitle"></h3>
+          <p id="popupAuthor"></p>
+          <img id="popupImage" src="" alt="Abstract" />
+        </div>
+      </div>
+
+      <!-- Comments Popup -->
+      <div id="commentsPopup" class="comments-popup">
+        <div class="popup-content">
+          <span class="close-popup" onclick="closePopup('commentsPopup')">&times;</span>
+          <h3 id="commentsTitle"></h3>
+          <div id="commentsContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showAbstract(title, author, imagePath) {
+        var popupTitle = document.getElementById('popupTitle');
+        var popupAuthor = document.getElementById('popupAuthor');
+        var popupImage = document.getElementById('popupImage');
+        var abstractPopup = document.getElementById('abstractPopup');
+
+        popupTitle.textContent = title;
+        popupAuthor.textContent = 'Author: ' + author;
+        popupImage.src = imagePath;
+
+        abstractPopup.style.display = 'flex';
+      }
+
+      function showComments(title, author) {
+        var commentsTitle = document.getElementById('commentsTitle');
+        var commentsContent = document.getElementById('commentsContent');
+        var commentsPopup = document.getElementById('commentsPopup');
+
+        commentsTitle.textContent = 'Comments for ' + title + ' by ' + author;
+        // You can load comments dynamically from your server or other data source.
+        commentsContent.innerHTML = `
+        <p>Comment 1: The paper provides a comprehensive and well-organized analysis of the topic, contributing valuable insights to the field.</p>
+          <p>Comment 2: The methodology section requires more details on the sampling strategy and data collection process for readers to fully understand and replicate the study</p>
+          <p>Comment 3: The innovative approach taken in this paper is commendable and adds a fresh perspective to the existing literature.</p>
+        `;
+
+        commentsPopup.style.display = 'flex';
+      }
+
+      function closePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.style.display = 'none';
+      }
+    </script>
+  </body>
+</html>

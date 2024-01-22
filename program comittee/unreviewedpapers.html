@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      h1 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 24px;
+      }
+
+      .profile-logo {
+        border-radius: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .dashboard-container {
+        text-align: center;
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .abstract-link,
+      .assign-reviewers-link {
+        color: #0066cc;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .abstract-popup,
+      .reviewers-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 5px;
+        overflow-y: auto;
+        max-height: 70vh;
+      }
+
+      .close-popup {
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color:#998b8a;
+        font-size: 30px;
+      }
+
+      @media (min-width: 768px) {
+        .dashboard-links {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+    <title>NITCONF Unreviewed Papers</title>
+  </head>
+  <body>
+    <nav class="header">
+      <h1>NITCONF</h1>
+      <a href="profile.html">
+        <img class="profile-logo" src="download.png" alt="Profile Logo" width="40" height="40" />
+      </a>
+    </nav>
+    <div class="dashboard-container">
+      <h2>Unreviewed Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Abstract</th>
+            <th>Assign Reviewers</th> <!-- New column for assigning reviewers -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Artificial Intelligence in Education</td>
+            <td>Hemanth</td>
+            <td class="abstract-link" onclick="showAbstract('Artificial Intelligence in Education', 'Hemanth', 'largepreview (2).png')">View Abstract</td>
+            <td class="assign-reviewers-link" onclick="assignReviewers('Artificial Intelligence in Education', 'Hemanth')">   <select id="expertise" name="expertise">
+              <option value="frontend">avinash</option>
+              <option value="backend">vinay</option>
+              <option value="fullstack">abhiram</option>
+              <option value="designer">shraddha</option>
+          </select></td>
+          </tr>
+          <tr>
+            <td>Blockchain Technology in Finance</td>
+            <td>Deekshitha</td>
+            <td class="abstract-link" onclick="showAbstract('Blockchain Technology in Finance', 'Deekshitha', 'largepreview (3).png')">View Abstract</td>
+            <td class="assign-reviewers-link" onclick="assignReviewers('Blockchain Technology in Finance', 'Deekshitha')">
+              <select id="expertise" name="expertise">
+                <option value="frontend">siri</option>
+                <option value="backend">naveen</option>
+                <option value="fullstack">afra</option>
+                <option value="designer">gayatri</option>
+            </select></td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      
+      <div id="abstractPopup" class="abstract-popup">
+        <div class="popup-content">
+          <span class="close-popup" onclick="closePopup('abstractPopup')">&times;</span>
+          <h3 id="popupTitle"></h3>
+          <p id="popupAuthor"></p>
+          <img id="popupImage" src="" alt="Abstract" />
+        </div>
+      </div>
+
+  
+      <div id="reviewersPopup" class="reviewers-popup">
+        <div class="popup-content">
+          <span class="close-popup" onclick="closePopup('reviewersPopup')">&times;</span>
+          <h3 id="reviewersTitle"></h3>
+          <p id="reviewersContent"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showAbstract(title, author, imagePath) {
+        var popupTitle = document.getElementById('popupTitle');
+        var popupAuthor = document.getElementById('popupAuthor');
+        var popupImage = document.getElementById('popupImage');
+        var abstractPopup = document.getElementById('abstractPopup');
+
+        popupTitle.textContent = title;
+        popupAuthor.textContent = 'Author: ' + author;
+        popupImage.src = imagePath;
+
+        abstractPopup.style.display = 'flex';
+      }
+
+      function closePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.style.display = 'none';
+      }
+    </script>
+  </body>
+</html>

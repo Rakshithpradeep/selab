@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      h1 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 24px;
+      }
+
+      .profile-logo {
+        margin-right: 10px;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+
+      .dashboard-container {
+        text-align: center;
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      @media (min-width: 768px) {
+        .dashboard-links {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+    <title>NITCONF Reviewers</title>
+  </head>
+  <body>
+    <nav class="header">
+      <h1>NITCONF</h1>
+      <a href="profile.html">
+        <img class="profile-logo" src="download.png" alt="Profile Logo" width="40" height="40" />
+      </a>
+    </nav>
+    <div class="dashboard-container">
+      <h2>Reviewers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Expertise</th>
+            <th>mobile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>avinash</td>
+            <td>avinash@gmail.com</td>
+            <td>Machine Learning</td>
+            <td>9373738309</td>
+          </tr>
+          <tr>
+            <td>abhiram</td>
+            <td>abhiram@gmail.com</td>
+            <td>Data Science</td>
+            <td>8456465754</td>
+          </tr>
+          <tr>
+            <td>vinay</td>
+            <td>vinay@gmail.com</td>
+            <td>Machine Learning</td>
+            <td>7856412365</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
