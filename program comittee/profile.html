@@ -1,72 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg?w=1380&t=st=1706442501~exp=1706443101~hmac=d8ee8d144695c8b7c67cd20ac0017d147a67f1f4d4ba63353a99b78f2b6bcd6e");
+            height: 100vh;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .profile-container {
-            max-width: 600px;
-            margin: auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .profile-container {
+      max-width: 400px;
+      width: 100%;
+     background: linear-gradient(90deg, #2980b9, #2c3e50);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        .user-info {
-            margin-bottom: 20px;
-        }
+    .user-info {
+      margin-bottom: 15px;
+    }
 
-        .label {
-            font-weight: bold;
-        }
-    </style>
+    .label {
+      font-weight: bold;
+      color:#2c3e50;
+      margin-bottom: 5px;
+    }
+.cardd {
+  box-shadow: 10px 10px 5px lightblue;
+}
+    p {
+      margin: 0;
+      
+      color:#8ac1e3;
+      font-family:"Roboto";
+      font-weight:bold;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="profile-container">
+  <div class="profile-container cardd">
     <img class="profile-img" src="download.png" alt="Profile Picture">
 
     <div class="user-info">
-        <p class="label">Name:</p>
-        <p>PC member</p>
+      <p class="label">Name:</p>
+      <p>PC member</p>
     </div>
 
     <div class="user-info">
-        <p class="label">Email:</p>
-        <p>pcmember@gmail.com</p>
+      <p class="label">Email:</p>
+      <p>pcmember@gmail.com</p>
     </div>
 
     <div class="user-info">
-        <p class="label">Role:</p>
-        <p>Program Committee member</p>
+      <p class="label">Role:</p>
+      <p>Program Committee member</p>
     </div>
 
     <div class="user-info">
-        <p class="label">Expertise:</p>
-        <p>Web Development, JavaScript, Python</p>
+      <p class="label">Expertise:</p>
+      <p>Web Development, JavaScript, Python</p>
     </div>
 
     <div class="user-info">
-        <p class="label">Phone Number:</p>
-        <p>987646578</p>
+      <p class="label">Phone Number:</p>
+      <p>987646578</p>
     </div>
-</div>
+  </div>
 
 </body>
+
 </html>
