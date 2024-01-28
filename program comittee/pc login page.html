@@ -159,9 +159,14 @@
         <form>
             <input type="text" placeholder="Username" required>
             <input type="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <button type="submit"  onclick="navigateToPage('dasboard.html')">Login</button>
         </form>
     </div>
+    <script>
+    function navigateToPage(pageUrl) {
+        window.location.href = pageUrl;
+    }
+</script>
 
 </body>
 
